@@ -79,9 +79,10 @@ function currentDate() {
     // using the id from the html doc
     $("#currentDay").text(currentDate);
 }
-
-// Calling the function to display it on the screen
-currentDate();
+// Created function to save these values in local storage
+function savePlans() {
+    localStorage.setItem("planDay", JSON.stringify(planDay));
+}
 
 
 // Creating a for loop that checks for content entered for the hours specified in the array
@@ -92,17 +93,12 @@ function showPlans() {
 
 }
 
-// Created function to save these values in local storage
-function savePlans() {
-    localStorage.setItem("planDay", JSON.stringify(planDay));
-}
-
 // created a function get the items logged in the planned day
 function getStorage() {
-    var plannedDay = JSON.parse(localStorage.getItem("Planned Day"));
+    var schedule = JSON.parse(localStorage.getItem("planDay"));
 
-    if (plannedDay) {
-        planDay = plannedDay;
+    if (schedule) {
+        planDay = schedule;
     }
 
     savePlans();
@@ -110,51 +106,55 @@ function getStorage() {
 
 }
 
+// Calling the function to display it on the screen
+currentDate();
+
 // Created a for loop to display the hour, plans and the button to save them
 // using .attr to change each class to match up with the stylesheet/bootstrap stylesheet
 planDay.forEach(function (currentHour) {
-    var hourRow = $("<div>").attr({
+    var scheduleRow = $("<form>").attr({
         "class": "row"
     });
 
-    $(".container").append(hourRow);
+    $(".container").append(scheduleRow);
+
     // ^ creating time blocks
-    var hours = $("<div>")
+    var hourColumn = $("<div>")
         .text(`${currentHour.hour}${currentHour.meridian}`)
         .attr({
             // setting class according to the hour class as provided in the style sheet. setting the column to take up 
             "class": "col-md-2 hour"
         });
 
-    var hourPlan = $("<div>")
+    var notesColumn = $("<div>")
         .attr({
             "class": "col-md-9 description p-0"
         });
 
     // added a variable for the text area
-    var userData = $("<textarea>");
+    var scheduleStatus = $("<textarea>");
 
-    hourPlan.append(userData);
+    notesColumn.append(scheduleStatus);
 
-    userData.attr("id", currentHour.id);
+    scheduleStatus.attr("id", currentHour.id);
 
     // if/else statements to accomodate for the time of day
-    if (currentHour.time === moment().format("HH")) {
-        userData.attr({
+    if (currentHour.time < moment().format("HH")) {
+        scheduleStatus.attr({
             // linking each of the next three classes to those provided in the css
-            "class": "present"
+            "class": "past"
 
         })
     }
-    else if (currentHour.time > moment().format("HH")) {
-        userData.attr({
-            "class": "future"
+    else if (currentHour.time === moment().format("HH")) {
+        scheduleStatus.attr({
+            "class": "present"
         })
     }
     // Noted that if the time in the array is single digits, the page will interpret that 
-    else if (currentHour.time < moment().format("HH")) {
-        userData.attr({
-            "class": "past"
+    else if (currentHour.time > moment().format("HH")) {
+        scheduleStatus.attr({
+            "class": "future"
         })
     }
 
@@ -170,16 +170,17 @@ planDay.forEach(function (currentHour) {
 
         });
     savePlanner.append(saveBtn);
-    hourRow.append(hours, hourPlan, savePlanner);
+    scheduleRow.append(hourColumn, notesColumn, savePlanner);
 })
+
 getStorage();
 
-$(".saveBtn").on('click', function (e) {
-    e.preventDefault();
-    // using $(this) to return a jQuery object that wraps the element
-    var saveNotes = $(this).siblings(".container").children(".present").attr("id");
-    planDay[saveNotes].notes = $(this).siblings(".description").children(".present").val();
-    savePlans;
+$(".saveBtn").on("click", function (event) {
+    event.preventDefault();
+    var saveIndex = $(this).siblings(".description").children(".future").attr("id");
+    planDay[saveIndex].notes = $(this).siblings(".description").children(".future").val();
+    console.log(saveIndex, planDay);
+    savePlans();
     showPlans();
 })
 
