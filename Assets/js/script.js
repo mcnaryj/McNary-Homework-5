@@ -3,8 +3,8 @@
 var planDay = [
     {
         id: 0,
-        hour: "09",
-        time: "09",
+        hour: "9",
+        time: "9",
         meridian: "am",
         notes: "",
     },
@@ -31,35 +31,35 @@ var planDay = [
     },
     {
         id: 4,
-        hour: "01",
-        time: "01",
+        hour: "1",
+        time: "1",
         meridian: "pm",
         notes: "",
     },
     {
         id: 5,
-        hour: "02",
-        time: "02",
+        hour: "2",
+        time: "2",
         meridian: "pm",
         notes: "",
     },
     {
         id: 6,
-        hour: "03",
-        time: "03",
+        hour: "3",
+        time: "3",
         meridian: "pm",
         notes: "",
     },
     {
         id: 7,
-        hour: "04",
-        time: "04",
+        hour: "4",
+        time: "4",
         meridian: "pm",
         notes: "",
     }, {
         id: 8,
-        hour: "05",
-        time: "05",
+        hour: "5",
+        time: "5",
         meridian: "pm",
         notes: "",
     },
@@ -67,12 +67,18 @@ var planDay = [
 // Logged to the console to display the array as a JSON string
 console.log("Day planner: " + JSON.stringify(planDay));
 
-// Created function to save these values in the local storage
+// Created function to save these values in local storage
 function savePlans() {
     localStorage.setItem("planDay", JSON.stringify(planDay))
 }
 // Added a console log to get the stored items, at the present it reads null 
 console.log("Planned Day: " + JSON.parse(localStorage.getItem("Planned Day")));
+
+// Function to display today's date in the header 
+function currentDate() {
+    var currentDate = moment().format('dddd, MMMM, Do');
+    $("#currentDay").text(currentDate);
+}
 
 // Creating a for loop that checks for content entered for the hours specified in the array
 function showPlans() {
@@ -84,21 +90,59 @@ function showPlans() {
 }
 
 
-// 
-function currentDate() {
-    var currentDate = moment().format('dddd, MMMM, Do');
-    $("#currentDay").text(currentDate);
-}
-
 function getStorage() {
     var plannedDay = JSON.parse(localStorage.getItem("Planned Day"));
 
     if (plannedDay) {
         planDay = plannedDay
     }
+
     savePlans;
     showPlans();
 }
-// Calling the function
+
+// Calling the function to display it on the screen
 currentDate();
 
+var userInput = $("<textarea>");
+
+planDay.forEach(function (currentHour) {
+    var hourRow = $("<form>").attr({
+        "class": "row"
+    });
+
+    var hourColumn = $("<div>")
+        .text(`${currentHour.hour}${currentHour.meridian}`).attr({
+            "class": "col-md-2 hour"
+        })
+    $(".container").append(hourColumn);
+    var hourPlan = $("<div>")
+        .attr({
+            "class": "col-md-9 description p-0"
+
+        });
+    hourPlan.append(userInput);
+    hourPlan.attr("id", currentHour.id);
+    var userInput = $("<div>")
+        .attr({
+            "class": "col-md-9 description p-0"
+        });
+
+    if (currentHour.time < moment().format("HH")) {
+        userInput.attr({
+            // linking each of the next three class to those provided in the css
+            "class": ".past"
+
+        })
+    }
+    else if (currentHour.time === moment().format("HH")) {
+        userInput.attr({
+            "class": ".present"
+        })
+    }
+    else if (currentHour.time > moment().format("HH")) {
+        userInput.attr({
+            "class": ".future"
+        })
+    }
+})
