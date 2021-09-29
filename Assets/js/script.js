@@ -180,6 +180,7 @@ $(".saveBtn").on("click", function (event) {
     var saveIndex = $(this).siblings(".description").children(".future").attr("id");
     planDay[saveIndex].notes = $(this).siblings(".description").children(".future").val();
     console.log(saveIndex, planDay);
+
     savePlans();
     showPlans();
 })
