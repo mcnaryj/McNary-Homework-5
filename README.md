@@ -36,7 +36,7 @@ When a timeblock is clicked, the user may enter an event and save it (if the tim
 
 ## Mock-Up
 
-The below animation demonstrates the appearance and functionality of the day planner:
+The below animation demonstrates the appearance and functionality of the day planner (the mouse moving out of the screenshot is refreshing the page):
  ![A user clicks on slots on the color-coded calendar and edits the events.](./Assets/Images/05-third-party-apis-homework-demo.gif)
 
 ## Notes
