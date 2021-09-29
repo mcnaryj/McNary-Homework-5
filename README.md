@@ -1,6 +1,6 @@
 ## Purpose
 
-The purpose of this README is to explain the objective of the homeowrk, and how it has been achieved:
+The purpose of this README is to explain the objective of the homework, and how it has been achieved:
 A simple calendar application has been created that allows a user to save events for each hour of the day by modifying starter code. This app runs in the browser and features dynamically updated HTML and CSS powered by jQuery.
 
 ## Day Planner
@@ -33,19 +33,17 @@ When the user scrolls down, they are presented with timeblocks for standard busi
 The timeblocks are color coded to indicate whether the event is in the present, past or the future.
 When a timeblock is clicked, the user may enter an event and save it (if the timeblock is green). The file is saved in local storage if the timeblock is green, and the saved events persist.
 
-The following animation demonstrates the application's functionality:
-![A user clicks on slots on the color-coded calendar and edits the events.](./Assets/05-third-party-apis-homework-demo.gif)
 
 ## Mock-Up
 
-The below gif demonstrates the appearance and functionality of the password generator:
- ![Check it out!](/Assets/images/Multi-choice-quiz-demo.gif)
+The below animation demonstrates the appearance and functionality of the day planner:
+ ![A user clicks on slots on the color-coded calendar and edits the events.](/Assets/Images/05-third-party-apis-homework-demo.gif)
 
 ## Notes
 
-This task seemed a bit easier to conceptualize than the previous homework, and I was able to get through it without a ton of difficulty.
+This task seemed a bit easier to conceptualize than the previous homework, and I was able to get through it without a ton of difficulty. It was especially nice that the CSS was plug-and-play, because I don't really care for CSS at all, especially when all indications I get are that there are better ways to go about it.
 A quirk I noticed is that my content only saves for future events. This makes sense because it's a day planner, but I would like to modify the code to have it save (or prompt the next business day).
 
 ## Contributing
-I will be providing the url for the site via the github repository, and it can also be found here: https://mcnaryj.github.io/McNary-Homework-5/ however any pull requests are welcome.
+I will be providing the url for the site via the GitHub repository, and it can also be found here: https://mcnaryj.github.io/McNary-Homework-5/ however any pull requests are welcome.
 
