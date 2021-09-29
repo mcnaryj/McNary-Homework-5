@@ -1,18 +1,15 @@
-# 05 Third-Party APIs: Work Day Scheduler
+## Purpose
 
-## Your Task
+The purpose of this README is to explain the objective of the homeowrk, and how it has been achieved:
+A simple calendar application has been created that allows a user to save events for each hour of the day by modifying starter code. This app runs in the browser and features dynamically updated HTML and CSS powered by jQuery.
 
-Create a simple calendar application that allows a user to save events for each hour of the day by modifying starter code. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
+## Day Planner
 
-You'll need to use the [Moment.js](https://momentjs.com/) library to work with date and time. Be sure to read the documentation carefully and concentrate on using Moment.js in the browser.
+As employee with a busy schedule, I want to build a day planner app that helps keep track of events throughout the day.
 
-## User Story
+## Installation/Viewing the Files
 
-```md
-AS AN employee with a busy schedule
-I WANT to add important events to a daily planner
-SO THAT I can manage my time effectively
-```
+Download the files contained in the McNary-Homework-5 repository, either through Github or by making a clone of the repository and downloading it locally. Once downloaded, open the file index.html to view the webpage. The published site can be found here: https://mcnaryj.github.io/McNary-Homework-5/.
 
 ## Acceptance Criteria
 
@@ -31,59 +28,24 @@ THEN the text for that event is saved in local storage
 WHEN I refresh the page
 THEN the saved events persist
 ```
+When the planner is opened, the current day is displayed at the top of the calendar.
+When the user scrolls down, they are presented with timeblocks for standard business hours.
+The timeblocks are color coded to indicate whether the event is in the present, past or the future.
+When a timeblock is clicked, the user may enter an event and save it (if the timeblock is green). The file is saved in local storage if the timeblock is green, and the saved events persist.
 
-The following animation demonstrates the application functionality:
-
+The following animation demonstrates the application's functionality:
 ![A user clicks on slots on the color-coded calendar and edits the events.](./Assets/05-third-party-apis-homework-demo.gif)
 
+## Mock-Up
 
-## Grading Requirements
+The below gif demonstrates the appearance and functionality of the password generator:
+ ![Check it out!](/Assets/images/Multi-choice-quiz-demo.gif)
 
-This homework is graded based on the following criteria: 
+## Notes
 
-### Technical Acceptance Criteria: 40%
+This task seemed a bit easier to conceptualize than the previous homework, and I was able to get through it without a ton of difficulty.
+A quirk I noticed is that my content only saves for future events. This makes sense because it's a day planner, but I would like to modify the code to have it save (or prompt the next business day).
 
-* Satisfies all of the above acceptance criteria plus the following:
+## Contributing
+I will be providing the url for the site via the github repository, and it can also be found here: https://mcnaryj.github.io/McNary-Homework-5/ however any pull requests are welcome.
 
-  * Uses a date utility library to work with date and time
-
-### Deployment: 32%
-
-* Application deployed at live URL
-
-* Application loads with no errors
-
-* Application GitHub URL submitted
-
-* GitHub repo contains application code
-
-### Application Quality: 15%
-
-* Application user experience is intuitive and easy to navigate
-
-* Application user interface style is clean and polished
-
-* Application resembles the mock-up functionality provided in the homework instructions
-
-### Repository Quality: 13%
-
-* Repository has a unique name
-
-* Repository follows best practices for file structure and naming conventions
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages
-
-* Repository contains quality README file with description, screenshot, and link to deployed application
-
-## Review
-
-You are required to submit the following for review:
-
-* The URL of the deployed application
-
-* The URL of the GitHub repository, with a unique name and a README describing the project
-
-- - -
-© 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
