@@ -34,14 +34,14 @@ var planDay = [
     {
         id: 4,
         hour: "01",
-        time: "1",
+        time: "13",
         meridian: "pm",
         notes: ""
     },
     {
         id: 5,
         hour: "02",
-        time: "2",
+        time: "14",
         meridian: "pm",
         notes: ""
     },
@@ -55,14 +55,14 @@ var planDay = [
     {
         id: 7,
         hour: "04",
-        time: "4",
+        time: "16",
         meridian: "pm",
         notes: ""
     },
     {
         id: 8,
         hour: "05",
-        time: "5",
+        time: "17",
         meridian: "pm",
         notes: ""
     },
@@ -184,6 +184,4 @@ $(".saveBtn").on("click", function (event) {
     savePlans();
     showPlans();
 })
-
-// Added a console log to get the stored items, at the present it reads null 
 
