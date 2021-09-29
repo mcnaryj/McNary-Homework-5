@@ -34,35 +34,35 @@ var planDay = [
     {
         id: 4,
         hour: "01",
-        time: "13",
+        time: "1",
         meridian: "pm",
         notes: ""
     },
     {
         id: 5,
         hour: "02",
-        time: "14",
+        time: "2",
         meridian: "pm",
         notes: ""
     },
     {
         id: 6,
         hour: "03",
-        time: "15",
+        time: "3",
         meridian: "pm",
         notes: ""
     },
     {
         id: 7,
         hour: "04",
-        time: "16",
+        time: "4",
         meridian: "pm",
         notes: ""
     },
     {
         id: 8,
         hour: "05",
-        time: "16",
+        time: "5",
         meridian: "pm",
         notes: ""
     },
