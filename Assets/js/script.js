@@ -48,7 +48,7 @@ var planDay = [
     {
         id: 6,
         hour: "03",
-        time: "3",
+        time: "15",
         meridian: "pm",
         notes: ""
     },
